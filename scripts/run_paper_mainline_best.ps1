@@ -8,12 +8,18 @@ $ErrorActionPreference = "Stop"
 $Root = Resolve-Path (Join-Path $PSScriptRoot "..")
 Set-Location $Root
 
-if (-not (Test-Path $Python)) {
-    throw "Python executable not found: $Python"
+if (Test-Path $Python) {
+    $PythonExe = (Resolve-Path $Python).Path
+} else {
+    $cmd = Get-Command $Python -ErrorAction SilentlyContinue
+    if ($null -eq $cmd) {
+        throw "Python executable not found: $Python"
+    }
+    $PythonExe = $cmd.Source
 }
 if (-not (Test-Path $Config)) {
     throw "Config not found: $Config"
 }
 
-& $Python main_new.py --config $Config
+& $PythonExe main_new.py --config $Config
 exit $LASTEXITCODE

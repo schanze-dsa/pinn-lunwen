@@ -129,7 +129,7 @@ network_config:
   output_dim: 1
   graph_precompute: true
   graph_cache_enabled: true
-  graph_cache_dir: ./results/paper_mainline_best_budget48h/graph_cache
+  graph_cache_dir: ./results/auto_phase2_refine_20260420_lr_half_floor02_route25/graph_cache
   graph_cache_name: knn_mir111_n271772_k8.npz
   graph_k: 8
   graph_width: 128
@@ -304,7 +304,7 @@ tightening_config:
   angle_unit: deg
   clockwise: true
 contact_route_update_every: 25
-resume_ckpt_path: null
+    resume_ckpt_path: null
 resume_start_step: 0
-resume_reset_optimizer: false
+resume_reset_optimizer: true
 

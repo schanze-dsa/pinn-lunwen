@@ -1,0 +1,7 @@
+tensorflow==2.10.1
+numpy==1.23.5
+pandas==2.0.3
+scipy==1.5.4
+matplotlib==3.7.5
+tqdm==4.66.5
+PyYAML==6.0.2
